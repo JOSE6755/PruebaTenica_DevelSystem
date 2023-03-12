@@ -40,7 +40,7 @@ function BasicExample() {
         </Form.Group>
         
         <Button variant="light" type="submit" onClick={(e)=>enviar(e)}>
-          Submit
+          Login
         </Button>
         <Link to="/registro" className="d-block">No tienes cuenta?</Link>
       </Form>

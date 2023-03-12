@@ -11,7 +11,9 @@ function Encuesta() {
     const obtenerEncuesta = async () => {
       try {
         const result = await axios.get(
-          `https://localhost:7177/api/Encuesta/${localStorage.getItem("idUsuario")}`,
+          `https://localhost:7177/api/Encuesta/${localStorage.getItem(
+            "idUsuario"
+          )}`,
           {
             headers: {
               "Content-Type": "application/problem+json; charset=utf-8",
@@ -28,24 +30,27 @@ function Encuesta() {
   }, []);
 
   const eliminar = async (e, id) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await axios.delete(`https://localhost:7177/api/Encuesta/${id}`,{headers:{"Content-Type":"application/problem+json; charset=utf-8"}})
-     setEncuesta(encuesta.map((value)=>{
-      if(value.idEncuesta===id){
-        
-        return {...value,disabled:true}
-      }else{
-        return value
-      }
-     }))
+      await axios.delete(`https://localhost:7177/api/Encuesta/${id}`, {
+        headers: { "Content-Type": "application/problem+json; charset=utf-8" },
+      });
+      setEncuesta(
+        encuesta.map((value) => {
+          if (value.idEncuesta === id) {
+            return { ...value, disabled: true };
+          } else {
+            return value;
+          }
+        })
+      );
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
-  useEffect(()=>{
-    console.log(encuesta)
-  },[encuesta])
+  useEffect(() => {
+    console.log(encuesta);
+  }, [encuesta]);
   return (
     <>
       {encuesta ? (
@@ -61,9 +66,11 @@ function Encuesta() {
                     disabled
                   >
                     <p>{item.nombre}</p>
-                    
+
                     <Button variant="success">Resultados</Button>
-                    <Link to={`${item.idEncuesta}/crearCampos`}><Button variant="warning">Editar</Button></Link>
+                    <Link to={`${item.idEncuesta}/crearCampos`}>
+                      <Button variant="warning">Editar</Button>
+                    </Link>
                     <Button
                       variant="danger"
                       onClick={(e) => {
@@ -81,9 +88,14 @@ function Encuesta() {
                   className="d-flex justify-content-center align-items-center gap-3 w-100"
                 >
                   <p>{item.nombre}</p>
-                  <p>{`Url: encuesta/response/${item.idEncuesta}`}</p>
+                  <Link
+                    to={`/encuesta/response/${item.idEncuesta}`}
+                  >{`Url: encuesta/response/${item.idEncuesta}`}</Link>
+
                   <Button variant="success">Resultados</Button>
-                  <Link to={`${item.idEncuesta}/crearCampos`}><Button variant="warning">Editar</Button></Link>
+                  <Link to={`${item.idEncuesta}/crearCampos`}>
+                    <Button variant="warning">Editar</Button>
+                  </Link>
                   <Button
                     variant="danger"
                     onClick={(e) => {
@@ -95,6 +107,11 @@ function Encuesta() {
                 </ListGroup.Item>
               );
             })}
+            <Link to="crearEncuesta">
+              <Button variant="success">
+                Crear encuesta!
+              </Button>
+            </Link>
           </ListGroup>
         </>
       ) : (
