@@ -16,7 +16,6 @@ function CrearCampos() {
     titulo: "",
     nombre: "",
     idTipo: 1,
-    requerido: false,
     idEncuesta:encuestaId,
     idUsuario:id
   });

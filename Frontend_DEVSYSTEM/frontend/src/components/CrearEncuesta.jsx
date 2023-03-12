@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function CrearEncuesta() {
-  const [encuestaData,setEncuestaData]=useState({nombre:"",descripcion:"",idUsuario:1})
+  const [encuestaData,setEncuestaData]=useState({nombre:"",descripcion:"",idUsuario:localStorage.getItem("idUsuario")})
   const [exito, setExito] = useState(false);
   const [error, setError] = useState(false);
 

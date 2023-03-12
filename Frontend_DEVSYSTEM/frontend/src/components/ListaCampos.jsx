@@ -7,8 +7,8 @@ import Alert from "react-bootstrap/Alert";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 function ListaCampos({ datos }) {
-  const {id,encuestaId}=useParams()
-  const [campos, setCampos] = useState(datos);
+  const { id, encuestaId } = useParams();
+  const [campos, setCampos] = useState([]);
   const [encuesta, setEncuesta] = useState(null);
   const [newDatos, setNewDatos] = useState({
     nombre: "",
@@ -17,19 +17,24 @@ function ListaCampos({ datos }) {
     idTipo: 1,
     idEncuesta: Number(encuestaId),
     idUsuario: Number(id),
-    idCampo:0
+    idCampo: 0,
   });
   const [show, setShow] = useState(false);
   const [exito, setExito] = useState(false);
 
   useEffect(() => {
+    //console.log(datos)
     const listado = async () => {
       try {
-        const result = await axios.get(`https://localhost:7177/api/Encuesta/${id}/${encuestaId}`, {
-          headers: {
-            "Content-Type": "application/problem+json; charset=utf-8",
-          },
-        });
+        const result = await axios.get(
+          `https://localhost:7177/api/Encuesta/${id}/${encuestaId}`,
+          {
+            headers: {
+              "Content-Type": "application/problem+json; charset=utf-8",
+            },
+          }
+        );
+        console.log(result);
         setEncuesta(result.data);
         llenar(result);
       } catch (error) {
@@ -41,12 +46,14 @@ function ListaCampos({ datos }) {
 
   const llenar = (result) => {
     result.data.map((value) => {
-      setCampos((campos) => [...campos, value.campo]);
+      if (value.campo) {
+        setCampos((campos) => [...campos, value.campo]);
+      }
     });
   };
 
   useEffect(() => {
-    console.log(campos);
+    console.log(campos, "hola");
     console.log(encuesta);
   }, [campos]);
 
@@ -65,7 +72,7 @@ function ListaCampos({ datos }) {
       idTipo: datosEncuesta.idTipo_campo,
       idEncuesta: Number(encuestaId),
       idUsuario: Number(id),
-      idCampo:Number(datosEncuesta.idCampo)
+      idCampo: Number(datosEncuesta.idCampo),
     });
     setShow(true);
   };
@@ -92,15 +99,18 @@ function ListaCampos({ datos }) {
   const eliminar = async (e, datos) => {
     e.preventDefault();
     try {
-      const result = await axios.delete(`https://localhost:7177/api/Campo/${datos.idCampo}`, {
-        headers: {
-          "Content-Type": "application/problem+json; charset=utf-8",
-        },
-      });
-      console.log(result)
-      setExito(true)
+      const result = await axios.delete(
+        `https://localhost:7177/api/Campo/${datos.idCampo}`,
+        {
+          headers: {
+            "Content-Type": "application/problem+json; charset=utf-8",
+          },
+        }
+      );
+      console.log(result);
+      setExito(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
   return (
@@ -111,7 +121,7 @@ function ListaCampos({ datos }) {
         </Alert>
       ) : null}
 
-      {campos.length !== 0 ? (
+      {campos.length > 0 ? (
         <Table striped bordered hover>
           <thead>
             <tr>

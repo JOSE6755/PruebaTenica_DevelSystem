@@ -6,7 +6,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Encuesta() {
-  const [encuesta, setEncuesta] = useState(null);
+  const [encuesta, setEncuesta] = useState([]);
   useEffect(() => {
     const obtenerEncuesta = async () => {
       try {
@@ -53,7 +53,7 @@ function Encuesta() {
   }, [encuesta]);
   return (
     <>
-      {encuesta ? (
+      {encuesta.length!==0 ? (
         <>
           <ListGroup className="d-flex justify-content-center align-items-center w-100 vh-100 gap-3">
             <h2>Aqui estan tus encuestas!</h2>
