@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "d7db88f0-2302-4ce5-b36f-ee68f2620726",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\": \"joseamvi58@gmail.com\",\r\n  \"contrasenia\": \"prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/User/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"User",
+								"Login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:13:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"jose\",\n    \"id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "get Encuesta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7177/api/Encuesta/1/7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Encuesta",
+								"1",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "521"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:16:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idEncuesta_campo\": 11,\n        \"idEncuesta\": 7,\n        \"encuesta\": {\n            \"idEncuesta\": 7,\n            \"nombre\": \"joseamvi58@gmail.com\",\n            \"descripcion\": \"no\",\n            \"idUsuario\": 1\n        },\n        \"idCampo\": 11,\n        \"campo\": {\n            \"idCampo\": 11,\n            \"nombre\": \"prueba4\",\n            \"titulo\": \"adasd\",\n            \"requerido\": 1,\n            \"idTipo_campo\": 2\n        },\n        \"respuestas\": null\n    },\n    {\n        \"idEncuesta_campo\": 12,\n        \"idEncuesta\": 7,\n        \"encuesta\": {\n            \"idEncuesta\": 7,\n            \"nombre\": \"joseamvi58@gmail.com\",\n            \"descripcion\": \"no\",\n            \"idUsuario\": 1\n        },\n        \"idCampo\": 12,\n        \"campo\": {\n            \"idCampo\": 12,\n            \"nombre\": \"prueba4\",\n            \"titulo\": \"joseamvi8@gmail.com\",\n            \"requerido\": 1,\n            \"idTipo_campo\": 2\n        },\n        \"respuestas\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear campo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"nombre\",\r\n  \"titulo\": \"titulo\",\r\n  \"requerido\": 1,\r\n  \"idTipo\": 2,\r\n  \"idEncuesta\": 9,\r\n  \"idUsuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/Campo/CreateCampo",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Campo",
+								"CreateCampo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "297"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:26:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Se creo el campo correctamente!\",\n    \"campo\": {\n        \"idEncuesta_campo\": 17,\n        \"idEncuesta\": 9,\n        \"encuesta\": {\n            \"idEncuesta\": 9,\n            \"nombre\": \"adasd\",\n            \"descripcion\": \"probando\",\n            \"idUsuario\": 1\n        },\n        \"idCampo\": 17,\n        \"campo\": {\n            \"idCampo\": 17,\n            \"nombre\": \"nombre\",\n            \"titulo\": \"titulo\",\n            \"requerido\": 1,\n            \"idTipo_campo\": 2\n        },\n        \"respuestas\": null\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Encuesta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"encuesta1\",\r\n  \"descripcion\": \"una encuesta de prueba\",\r\n  \"idUsuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/Encuesta/Create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Encuesta",
+								"Create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:25:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Encuesta creada correctamente!\",\n    \"id\": 15\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar campo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"nombre\",\r\n  \"titulo\": \"titulo\",\r\n  \"requerido\": 1,\r\n  \"idTipo\": 3,\r\n  \"idEncuesta\": 7,\r\n  \"idUsuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/Campo/11",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Campo",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:21:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campo actualizado!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar campo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/Campo/11",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Campo",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:21:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Se borro el campo!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Encuestas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7177/api/Encuesta/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Encuesta",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "515"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:22:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idEncuesta\": 7,\n        \"nombre\": \"joseamvi58@gmail.com\",\n        \"descripcion\": \"no\",\n        \"idUsuario\": 1\n    },\n    {\n        \"idEncuesta\": 9,\n        \"nombre\": \"adasd\",\n        \"descripcion\": \"probando\",\n        \"idUsuario\": 1\n    },\n    {\n        \"idEncuesta\": 10,\n        \"nombre\": \"adasd\",\n        \"descripcion\": \"askdljalskdjalskdja\",\n        \"idUsuario\": 1\n    },\n    {\n        \"idEncuesta\": 11,\n        \"nombre\": \"prueba\",\n        \"descripcion\": \"Esta es una encuesta de prueba\",\n        \"idUsuario\": 1\n    },\n    {\n        \"idEncuesta\": 12,\n        \"nombre\": \"prueba4\",\n        \"descripcion\": \"asdljasldjaslkdja\",\n        \"idUsuario\": 1\n    },\n    {\n        \"idEncuesta\": 14,\n        \"nombre\": \"encuesta1\",\n        \"descripcion\": \"una encuesta de prueba\",\n        \"idUsuario\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Eliminar encuesta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7177/api/Encuesta/7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"Encuesta",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:23:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La encuesta fue eliminada!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Registro usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"correo\": \"joseamvi@gmail.com\",\r\n  \"contasenia\": \"12345\",\r\n  \"nombre\": \"Jose\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7177/api/User/Register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"api",
+								"User",
+								"Register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:23:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario registrado!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get encuesta dinamica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7177/response/9",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7177",
+							"path": [
+								"response",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "499"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2023 23:26:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"datos\": [\n        {\n            \"idEncuesta_campo\": 16,\n            \"idEncuesta\": 9,\n            \"encuesta\": {\n                \"idEncuesta\": 9,\n                \"nombre\": \"adasd\",\n                \"descripcion\": \"probando\",\n                \"idUsuario\": 1\n            },\n            \"idCampo\": 16,\n            \"campo\": {\n                \"idCampo\": 16,\n                \"nombre\": \"nombre\",\n                \"titulo\": \"titulo\",\n                \"requerido\": 1,\n                \"idTipo_campo\": 2\n            },\n            \"respuestas\": null\n        },\n        {\n            \"idEncuesta_campo\": 17,\n            \"idEncuesta\": 9,\n            \"encuesta\": {\n                \"idEncuesta\": 9,\n                \"nombre\": \"adasd\",\n                \"descripcion\": \"probando\",\n                \"idUsuario\": 1\n            },\n            \"idCampo\": 17,\n            \"campo\": {\n                \"idCampo\": 17,\n                \"nombre\": \"nombre\",\n                \"titulo\": \"titulo\",\n                \"requerido\": 1,\n                \"idTipo_campo\": 2\n            },\n            \"respuestas\": null\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
